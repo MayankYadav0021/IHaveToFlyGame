@@ -1,19 +1,15 @@
 package com.example.ihavetofly;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 public class GameActivity extends AppCompatActivity {
 
-
     private GameView gameView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +20,8 @@ public class GameActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getSize(point);
 
         gameView = new GameView(this, point.x, point.y);
-        setContentView(gameView);
 
+        setContentView(gameView);
     }
 
     @Override
@@ -33,11 +29,10 @@ public class GameActivity extends AppCompatActivity {
         super.onPause();
         gameView.pause();
     }
+
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         gameView.resume();
-
     }
-
 }
